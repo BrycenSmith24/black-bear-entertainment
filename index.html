@@ -79,7 +79,7 @@
         <p>Featured film in production</p>
       </div>
       <div class="stat-card">
-        <h3>2</h3>
+        <h3>4</h3>
         <p>Core studio leaders</p>
       </div>
       <div class="stat-card">
@@ -108,6 +108,84 @@
       </div>
     </section>
 
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="eyebrow">Opportunities</span>
+        <h2>Apply for a job or pitch a film idea</h2>
+      </div>
+
+      <div class="opportunities-grid">
+        <form class="studio-form" id="job-application-form">
+          <h3>Job Application</h3>
+          <p class="form-note">
+            We are currently looking for actors and other production help.
+          </p>
+
+          <label>
+            Full name
+            <input type="text" name="name" required />
+          </label>
+
+          <label>
+            Email address
+            <input type="email" name="email" required />
+          </label>
+
+          <label>
+            What position are you applying for?
+            <input type="text" name="role" placeholder="Actor, editor, camera help, etc." required />
+          </label>
+
+          <label>
+            Why do you want to join Black Bear Entertainment?
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+
+          <button type="submit" class="btn">Send Application</button>
+        </form>
+
+        <form class="studio-form" id="film-pitch-form">
+          <h3>Pitch a Film Idea</h3>
+          <p class="form-note">
+            Pitch your idea to Black Bear Entertainment for review.
+          </p>
+
+          <label>
+            Your name
+            <input type="text" name="name" required />
+          </label>
+
+          <label>
+            Email address
+            <input type="email" name="email" required />
+          </label>
+
+          <label>
+            Film title
+            <input type="text" name="title" required />
+          </label>
+
+          <label>
+            Pitch summary
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+
+          <label>
+            What would you like Black Bear Entertainment to do?
+            <select name="request" required>
+              <option value="">Select one</option>
+              <option value="Executive Director and Producer">Executive Director and Producer</option>
+              <option value="Producer only">Producer only</option>
+              <option value="Help film the entire movie">Help film the entire movie</option>
+              <option value="Review the idea only">Review the idea only</option>
+            </select>
+          </label>
+
+          <button type="submit" class="btn">Send Pitch</button>
+        </form>
+      </div>
+    </section>
+
     <section class="feature-banner">
       <div>
         <span class="eyebrow">Featured Production</span>
@@ -123,6 +201,7 @@
   <footer class="site-footer">
     <h3>Black Bear Entertainment</h3>
     <p>Independent Film Studio</p>
+    <p>Contact: <a href="mailto:blackbear.entertainment@gmail.com">blackbear.entertainment@gmail.com</a></p>
     <p>© 2026 Black Bear Entertainment. All Rights Reserved.</p>
   </footer>
 
