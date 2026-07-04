@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
 
-  const API_ENDPOINT = "https://YOUR-WORKER-URL/submit";
+  const API_ENDPOINT = "https://discordformsend.palmtree145709.workers.dev/submit";
 
   document.querySelectorAll('a[href]').forEach((link) => {
     const href = link.getAttribute("href");
