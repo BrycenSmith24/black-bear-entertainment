@@ -1,34 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
 
-    // Fade in page when loaded
-    document.body.classList.add("loaded");
+  const links = document.querySelectorAll('a[href]');
 
-    // Handle navigation transitions
-    document.querySelectorAll("a").forEach(link => {
+  links.forEach((link) => {
+    const href = link.getAttribute("href");
 
-        const href = link.getAttribute("href");
+    if (
+      !href ||
+      href.startsWith("#") ||
+      href.startsWith("http") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:")
+    ) {
+      return;
+    }
 
-        if (
-            href &&
-            !href.startsWith("#") &&
-            !href.startsWith("http") &&
-            !link.hasAttribute("target")
-        ) {
+    link.addEventListener("click", (event) => {
+      const mouseButton = event.button;
+      const modified = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
 
-            link.addEventListener("click", function (e) {
+      if (mouseButton !== 0 || modified) return;
 
-                e.preventDefault();
+      event.preventDefault();
+      document.body.classList.add("page-exit");
 
-                document.body.classList.add("page-exit");
-
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 500);
-
-            });
-
-        }
-
+      setTimeout(() => {
+        window.location.href = href;
+      }, 460);
     });
-
+  });
 });
