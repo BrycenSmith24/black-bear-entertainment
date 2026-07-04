@@ -17,10 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     link.addEventListener("click", (event) => {
-      const mouseButton = event.button;
       const modified = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
-
-      if (mouseButton !== 0 || modified) return;
+      if (event.button !== 0 || modified) return;
 
       event.preventDefault();
       document.body.classList.add("page-exit");
