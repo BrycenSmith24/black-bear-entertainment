@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
 
-  const links = document.querySelectorAll('a[href]');
-
-  links.forEach((link) => {
+  document.querySelectorAll('a[href]').forEach((link) => {
     const href = link.getAttribute("href");
 
     if (
@@ -12,13 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
       href.startsWith("http") ||
       href.startsWith("mailto:") ||
       href.startsWith("tel:")
-    ) {
-      return;
-    }
+    ) return;
 
     link.addEventListener("click", (event) => {
-      const modified = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
-      if (event.button !== 0 || modified) return;
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 
       event.preventDefault();
       document.body.classList.add("page-exit");
