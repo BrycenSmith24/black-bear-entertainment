@@ -1,92 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Black Bear Entertainment</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="bg"></div>
+  <div class="grain"></div>
+  <div class="transition-screen"></div>
 
-<div class="bg"></div>
-<div class="grain"></div>
+  <header class="site-header">
+    <div class="logo">Black Bear Entertainment</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="movies/">Films</a>
+      <a href="team/">Production Team</a>
+    </nav>
+  </header>
 
-<header>
-  <div class="logo">Black Bear Entertainment</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="movies/">Movies</a>
-    <a href="team/">Team</a>
-  </nav>
-</header>
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <span class="hero-label">
-            Independent Film Studio
-        </span>
-
-        <h1>
-            Black Bear Entertainment
-        </h1>
-
+  <main>
+    <section class="hero hero-home">
+      <div class="hero-content">
+        <span class="eyebrow">Independent Film Studio</span>
+        <h1>Black Bear Entertainment</h1>
         <p>
-            Creating original films through immersive storytelling,
-            cinematic visuals, and independent production.
+          Creating original films with cinematic visuals, grounded performances,
+          and suspense-driven storytelling. We build stories that feel tense,
+          memorable, and real.
         </p>
+        <a class="btn" href="movies/">Explore Films</a>
+      </div>
+    </section>
 
-        <a class="btn" href="movies/">
-            Explore Films
-        </a>
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="eyebrow">About the Studio</span>
+        <h2>What Black Bear Entertainment Is About</h2>
+      </div>
 
-    </div>
+      <div class="text-block">
+        <p>
+          Black Bear Entertainment is a creative film studio focused on making
+          original productions with a cinematic tone. The studio is built around
+          strong atmosphere, character-driven conflict, and stories that stay with
+          the audience after the credits roll.
+        </p>
+        <p>
+          Our productions are designed to feel immersive and visually striking.
+          Every project is approached with a clear identity, from camera style and
+          pacing to music, mood, and visual branding.
+        </p>
+      </div>
+    </section>
 
-</section>
+    <section class="stats-grid">
+      <div class="stat-card">
+        <h3>1</h3>
+        <p>Featured Film in Production</p>
+      </div>
+      <div class="stat-card">
+        <h3>2</h3>
+        <p>Core Studio Leaders</p>
+      </div>
+      <div class="stat-card">
+        <h3>2026</h3>
+        <p>Current Production Year</p>
+      </div>
+    </section>
 
-<section class="featured-film">
+    <section class="split-section">
+      <div class="panel">
+        <span class="eyebrow">Mission</span>
+        <h2>Built for Original Storytelling</h2>
+        <p>
+          Our mission is to develop films that feel intentional, polished, and
+          cinematic. We want every project to have a clear tone, a strong concept,
+          and a visual identity that stands out.
+        </p>
+      </div>
 
-    <div class="featured-content">
+      <div class="panel">
+        <span class="eyebrow">Focus</span>
+        <h2>Cinematic Suspense</h2>
+        <p>
+          The studio leans into tension, mystery, and dramatic storytelling.
+          That style gives each production a distinct look and feel, especially
+          for a project like Route 61.
+        </p>
+      </div>
+    </section>
 
-        <span class="featured-tag">
-            CURRENT PRODUCTION
-        </span>
-
+    <section class="feature-banner">
+      <div>
+        <span class="eyebrow">Featured Production</span>
         <h2>Route 61</h2>
-
         <p>
-            A psychological thriller following Ethan Cole as he
-            becomes trapped in a mysterious town connected to
-            the secrets of Route 61.
+          A psychological thriller set around a town that should not exist.
+          The wrong man. The wrong town. The wrong time.
         </p>
+      </div>
+      <a class="btn-secondary" href="movies/route-61/">View Film</a>
+    </section>
+  </main>
 
-        <a class="btn-secondary"
-           href="movies/route-61/">
-           View Film
-        </a>
+  <footer class="site-footer">
+    <h3>Black Bear Entertainment</h3>
+    <p>Independent Film Studio</p>
+    <p>© 2026 Black Bear Entertainment. All Rights Reserved.</p>
+  </footer>
 
-    </div>
-
-</section>
-  
-<section class="cards">
-  <div class="card">
-    <h2>🎬 Productions</h2>
-    <p>Original cinematic films currently in development.</p>
-  </div>
-
-  <div class="card">
-    <h2>🌑 Style</h2>
-    <p>Dark, atmospheric storytelling with strong visual tone.</p>
-  </div>
-
-  <div class="card">
-    <h2>📍 Studio</h2>
-    <p>Independent creative production studio.</p>
-  </div>
-</section>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
