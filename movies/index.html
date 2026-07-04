@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movies - Black Bear Entertainment</title>
-  <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Films - Black Bear Entertainment</title>
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
+  <div class="bg"></div>
+  <div class="grain"></div>
+  <div class="transition-screen"></div>
 
-<div class="bg"></div>
-<div class="grain"></div>
+  <header class="site-header">
+    <div class="logo">Black Bear Entertainment</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./">Films</a>
+      <a href="../team/">Production Team</a>
+    </nav>
+  </header>
 
-<header>
-  <div class="logo">Black Bear Entertainment</div>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="./">Movies</a>
-    <a href="../team/">Team</a>
-  </nav>
-</header>
+  <main>
+    <section class="page-hero">
+      <span class="eyebrow">Upcoming Films</span>
+      <h1>Films in Development</h1>
+      <p>
+        A growing collection of original productions from Black Bear Entertainment.
+      </p>
+    </section>
 
-<section class="page">
-  <h1>Upcoming Films</h1>
+    <section class="content-section">
+      <a class="movie-entry" href="route-61/">
+        <div class="movie-entry-main">
+          <span class="movie-badge">In Production</span>
+          <h2>Route 61</h2>
+          <p class="movie-meta">Thriller / Drama</p>
+          <p>
+            A man takes a highway detour and enters a town where reality begins to collapse.
+          </p>
+        </div>
+        <div class="movie-entry-action">View Details</div>
+      </a>
+    </section>
+  </main>
 
-  <div class="movie-card">
+  <footer class="site-footer">
+    <h3>Black Bear Entertainment</h3>
+    <p>Independent Film Studio</p>
+    <p>© 2026 Black Bear Entertainment. All Rights Reserved.</p>
+  </footer>
 
-    <div class="movie-status">
-        IN PRODUCTION
-    </div>
-
-    <h2>Route 61</h2>
-
-    <p>
-        Thriller / Drama
-    </p>
-
-    <a href="route-61/">
-        View Details
-    </a>
-
-</div>
-
-</section>
-
-<script src="../script.js"></script>
+  <script src="../script.js"></script>
 </body>
 </html>
