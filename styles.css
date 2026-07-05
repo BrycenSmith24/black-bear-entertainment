@@ -1,13 +1,12 @@
 :root {
   --bg: #050505;
-  --panel: rgba(18, 18, 22, 0.80);
-  --panel-2: rgba(24, 24, 30, 0.94);
+  --panel: rgba(18, 18, 22, 0.82);
+  --panel-2: rgba(24, 24, 30, 0.96);
   --line: rgba(255, 255, 255, 0.10);
   --text: #f5f5f5;
   --muted: #c7c7c7;
   --gold: #f5c542;
   --gold-soft: rgba(245, 197, 66, 0.14);
-  --gold-strong: rgba(245, 197, 66, 0.26);
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.50);
   --radius: 28px;
 }
@@ -47,22 +46,16 @@ body.page-exit {
   inset: 0;
   z-index: -3;
   background:
-    radial-gradient(circle at 18% 20%, rgba(245, 197, 66, 0.16), transparent 24%),
-    radial-gradient(circle at 82% 28%, rgba(105, 72, 195, 0.18), transparent 26%),
-    radial-gradient(circle at 50% 82%, rgba(255, 255, 255, 0.05), transparent 34%),
-    linear-gradient(135deg, #050505 0%, #0a0a0d 45%, #050505 100%);
+    radial-gradient(circle at 18% 20%, rgba(245, 197, 66, 0.14), transparent 24%),
+    radial-gradient(circle at 80% 25%, rgba(120, 85, 220, 0.16), transparent 26%),
+    radial-gradient(circle at 52% 80%, rgba(255, 255, 255, 0.05), transparent 32%),
+    linear-gradient(135deg, #050505 0%, #0a0a0d 42%, #050505 100%);
   animation: bgShift 16s ease-in-out infinite alternate;
 }
 
 @keyframes bgShift {
-  from {
-    transform: scale(1);
-    filter: hue-rotate(0deg);
-  }
-  to {
-    transform: scale(1.06);
-    filter: hue-rotate(12deg);
-  }
+  from { transform: scale(1); filter: hue-rotate(0deg); }
+  to { transform: scale(1.06); filter: hue-rotate(10deg); }
 }
 
 .grain {
@@ -556,15 +549,6 @@ p {
   color: var(--muted);
 }
 
-.site-footer a {
-  color: var(--gold);
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
 .site-footer h3 {
   margin: 0 0 8px;
   color: var(--text);
@@ -624,30 +608,4 @@ p {
   h1 {
     font-size: clamp(2.1rem, 11vw, 3.5rem);
   }
-}
-
-.login-body {
-  min-height: 100vh;
-}
-
-.login-screen {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-}
-
-.login-card {
-  width: min(100%, 520px);
-  padding: 34px;
-  border-radius: 34px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  box-shadow: var(--shadow);
-  text-align: center;
-}
-
-.login-note {
-  margin-top: 14px;
-  font-size: 0.92rem;
 }
