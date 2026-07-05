@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
 
-  const API_ENDPOINT = "https://discordformsend.palmtree145709.workers.dev/submit";
+  if (localStorage.getItem("atlantic_logged_in") !== "yes" && !window.location.pathname.endsWith("login.html")) {
+    window.location.href = "login.html";
+    return;
+  }
 
   document.querySelectorAll('a[href]').forEach((link) => {
     const href = link.getAttribute("href");
@@ -26,67 +29,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  async function sendToWorker(payload) {
-    const res = await fetch(API_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-
-    if (!res.ok) {
-      const text = await res.text();
-      throw new Error(text || "Submission failed");
-    }
-  }
+  const studioEmail = "blackbear.entertainment@gmail.com";
 
   const jobForm = document.getElementById("job-application-form");
   if (jobForm) {
-    jobForm.addEventListener("submit", async (e) => {
+    jobForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
       const fd = new FormData(jobForm);
+      const subject = encodeURIComponent(`Job Application - ${fd.get("name") || ""}`);
+      const body = encodeURIComponent(
+        `Name: ${fd.get("name") || ""}\nEmail: ${fd.get("email") || ""}\nApplying For: ${fd.get("role") || ""}\n\nMessage:\n${fd.get("message") || ""}`
+      );
 
-      try {
-        await sendToWorker({
-          type: "job",
-          name: fd.get("name") || "",
-          email: fd.get("email") || "",
-          role: fd.get("role") || "",
-          message: fd.get("message") || ""
-        });
-
-        alert("Application sent to Black Bear Entertainment.");
-        jobForm.reset();
-      } catch (err) {
-        alert("Could not send application right now.");
-        console.error(err);
-      }
+      window.location.href = `mailto:${studioEmail}?subject=${subject}&body=${body}`;
     });
   }
 
   const pitchForm = document.getElementById("film-pitch-form");
   if (pitchForm) {
-    pitchForm.addEventListener("submit", async (e) => {
+    pitchForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
       const fd = new FormData(pitchForm);
+      const subject = encodeURIComponent(`Film Pitch - ${fd.get("title") || ""}`);
+      const body = encodeURIComponent(
+        `Name: ${fd.get("name") || ""}\nEmail: ${fd.get("email") || ""}\nFilm Title: ${fd.get("title") || ""}\nRequested Support: ${fd.get("request") || ""}\n\nPitch:\n${fd.get("message") || ""}`
+      );
 
-      try {
-        await sendToWorker({
-          type: "pitch",
-          name: fd.get("name") || "",
-          email: fd.get("email") || "",
-          title: fd.get("title") || "",
-          request: fd.get("request") || "",
-          message: fd.get("message") || ""
-        });
-
-        alert("Pitch sent to Black Bear Entertainment.");
-        pitchForm.reset();
-      } catch (err) {
-        alert("Could not send pitch right now.");
-        console.error(err);
-      }
+      window.location.href = `mailto:${studioEmail}?subject=${subject}&body=${body}`;
     });
   }
 });
