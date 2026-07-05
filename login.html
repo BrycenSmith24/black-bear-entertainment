@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atlantic Entertainment | Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="login-body">
+  <div class="bg"></div>
+  <div class="grain"></div>
+
+  <main class="login-screen">
+    <div class="login-card">
+      <span class="eyebrow">Atlantic Entertainment</span>
+      <h1>Login to Continue</h1>
+      <p>
+        Use the button below to enter the studio site.
+      </p>
+
+      <button id="roblox-login-btn" class="btn">
+        Login with Roblox
+      </button>
+
+      <p class="login-note">
+        This is a site entry screen for now.
+      </p>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("roblox-login-btn").addEventListener("click", () => {
+      localStorage.setItem("atlantic_logged_in", "yes");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
