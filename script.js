@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const API_ENDPOINT = "https://YOUR-WORKER-URL/submit";
+  const API_ENDPOINT = "https://discordformsend.palmtree145709.workers.dev/submit";
 
   async function sendToWorker(payload) {
     const res = await fetch(API_ENDPOINT, {
