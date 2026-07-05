@@ -1,11 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
 
-  if (localStorage.getItem("atlantic_logged_in") !== "yes" && !window.location.pathname.endsWith("login.html")) {
-    window.location.href = "login.html";
-    return;
-  }
-
   document.querySelectorAll('a[href]').forEach((link) => {
     const href = link.getAttribute("href");
 
@@ -29,35 +24,73 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const studioEmail = "blackbear.entertainment@gmail.com";
+  const API_ENDPOINT = "https://YOUR-WORKER-URL/submit";
+
+  async function sendToWorker(payload) {
+    const res = await fetch(API_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(text || "Submission failed");
+    }
+  }
 
   const jobForm = document.getElementById("job-application-form");
   if (jobForm) {
-    jobForm.addEventListener("submit", (e) => {
+    jobForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-
       const fd = new FormData(jobForm);
-      const subject = encodeURIComponent(`Job Application - ${fd.get("name") || ""}`);
-      const body = encodeURIComponent(
-        `Name: ${fd.get("name") || ""}\nEmail: ${fd.get("email") || ""}\nApplying For: ${fd.get("role") || ""}\n\nMessage:\n${fd.get("message") || ""}`
-      );
 
-      window.location.href = `mailto:${studioEmail}?subject=${subject}&body=${body}`;
+      const payload = {
+        type: "job",
+        name: fd.get("name") || "",
+        email: fd.get("email") || "",
+        role: fd.get("role") || "",
+        experience: fd.get("experience") || "",
+        availability: fd.get("availability") || "",
+        message: fd.get("message") || ""
+      };
+
+      try {
+        await sendToWorker(payload);
+        alert("Application sent.");
+        jobForm.reset();
+      } catch (err) {
+        alert("Could not send application right now.");
+        console.error(err);
+      }
     });
   }
 
   const pitchForm = document.getElementById("film-pitch-form");
   if (pitchForm) {
-    pitchForm.addEventListener("submit", (e) => {
+    pitchForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-
       const fd = new FormData(pitchForm);
-      const subject = encodeURIComponent(`Film Pitch - ${fd.get("title") || ""}`);
-      const body = encodeURIComponent(
-        `Name: ${fd.get("name") || ""}\nEmail: ${fd.get("email") || ""}\nFilm Title: ${fd.get("title") || ""}\nRequested Support: ${fd.get("request") || ""}\n\nPitch:\n${fd.get("message") || ""}`
-      );
 
-      window.location.href = `mailto:${studioEmail}?subject=${subject}&body=${body}`;
+      const payload = {
+        type: "pitch",
+        name: fd.get("name") || "",
+        email: fd.get("email") || "",
+        title: fd.get("title") || "",
+        genre: fd.get("genre") || "",
+        logline: fd.get("logline") || "",
+        request: fd.get("request") || "",
+        message: fd.get("message") || ""
+      };
+
+      try {
+        await sendToWorker(payload);
+        alert("Pitch sent.");
+        pitchForm.reset();
+      } catch (err) {
+        alert("Could not send pitch right now.");
+        console.error(err);
+      }
     });
   }
 });
